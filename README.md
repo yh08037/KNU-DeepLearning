@@ -6,3 +6,4 @@
 
 아래 링크의 포스트를 순서대로 따라가면서 그래픽 드라이버, CUDA, CUDNN, Anaconda, tensorflow 를 설치한다.
 내 노트북의 그래픽카드는 GeForce MX150 이므로 tensorflow_gpu-1.12.0 을 설치하기 위해 CUDA 9.0을 설치하고, 이에 맞추어 CUDNN 7.4.2을 설치하였다.
+또한 CUDA 9.0이 Python 3.7을 지원하지 않으므로 Python의 버전을 3.6.8로 다운그레이드하였다.
