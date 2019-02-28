@@ -30,7 +30,7 @@ CNN : Convolutional Neural Network
 ### MNIST 
 
 
-![](images/MNIST_CNN.PNG)
+![](images/MNIST_CNN.png)
 
 
 ## [2019.02.28] Keras
