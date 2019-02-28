@@ -22,3 +22,6 @@ MLP : Mulitlayered Perceptron
 CNN : Convolutional Neural Network
 
 ### MNIST 
+
+
+![](images/MNIST_CNN.PNG)
