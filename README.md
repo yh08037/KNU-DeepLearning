@@ -20,7 +20,92 @@
 ## [2019.02.26] MLP
 
 MLP : Mulitlayered Perceptron
-### Iris
+### Tensor Declaration
+```python
+import tensorflow as tf
+import numpy as np
+
+sess = tf.Session()
+
+row_dim = 2
+col_dim = 3
+zero_tsr = tf.zeros([row_dim, col_dim])
+ones_tsr = tf.ones([row_dim, col_dim])
+filled_tsr = tf.fill([row_dim, col_dim], 42)
+constant_tsr = tf.constant([1, 2, 3])
+print(zero_tsr, '\n', ones_tsr, '\n', constant_tsr, '\n')
+print(sess.run(zero_tsr), '\n\n', sess.run(ones_tsr), '\n\n', sess.run(filled_tsr), '\n\n', sess.run(constant_tsr))
+
+linear_tsr = tf.linspace(start=0., stop=1., num=5)
+int_seq_tsr = tf.range(start=0, limit=10, delta=2)
+print(linear_tsr)
+print(int_seq_tsr)
+print(sess.run(linear_tsr))
+print(sess.run(int_seq_tsr))
+
+randunif_tsr = tf.random_uniform([row_dim, col_dim], minval=0, maxval=1)
+print(randunif_tsr) 
+print(sess.run(randunif_tsr))
+
+randnorm_tsr = tf.random_normal([row_dim, col_dim], mean=0.0, stddev=1.0)
+print(randnorm_tsr)
+print(sess.run(randnorm_tsr))
+
+truncnorm_tsr =tf.truncated_normal([row_dim, col_dim], mean=0.0, stddev=1.0)
+print(truncnorm_tsr)
+print(sess.run(truncnorm_tsr))
+```
+### Variables
+* 텐서플로우가 알고리즘을 최적화하기 위해 어떻게 이들을 변화시키는지 계속 추적할 수 있게하는 알고리즘의 매개변수
+
+#### Variables from tensors
+* 주로 인공신경망의 가중치와 같은 학습가능한 매개변수들
+* 텐서를 감싸므로써 대응하는 변수를 생성한다
+```python
+my_var = tf.Variable(tf.zeros([row_dim, col_dim]))
+print(my_var)
+```
+```
+<tf.Variable 'Variable_2:0' shape=(2, 3) dtype=float32_ref>
+```
+
+#### Variables form numpy arrays, or constant
+
+#### Variables initailization method
+* 가장 대표적인 방법은 global_variables_initialize() 메소드인데, 이는 그래프 안에서 우리가 만든 모든 변수를 초기화시키는 연산을 생성한다
+* 또는 한 변수를 다른 변수를 초기화한 결과를 기반으로 초기화려면 다음과 같이 할 수 있다
+```python
+sess = tf.Session()
+first_var = tf.Variables(tf.zeros([2, 3]))
+sess.run(first_var.initializer)
+second_var = tf.Variable(tf.zeros_like(first_var))  # first_var 에 의존
+sess.run(second_var.initializer)
+```
+
+#### Placeholders
+* 특정한 타입이나 모양의 데이터를 feed in 할 수 있게 해주는 객체
+* 연산의 예상된 결과와 같은 computational graph의 결과에 의존
+* 그저 그래프 안에 feed in 되기 위한 자리만을 잡고 있음
+* 세션에서 feed_dict 인자를 통하여 데이터를 얻는다
+
+```python
+sess = tf.Session()
+x = tf.placeholder(tf.float32, shape=[2, 2])
+y = tf.identity(x)
+
+x_vals = np.random.rand(2, 2)
+sess.run(y, feed_dict={x:x_vals})          # 데이터를 feed 만 한다
+temp = sess.run(y, feed_dict={x:x_vals})   # 데이터를 feed 하고 temp 에 그 값을 저장한다
+
+print(x_vals)
+print(temp)
+```
+```
+[[0.53452392 0.16960416]
+ [0.89727193 0.99758985]]
+[[0.5345239  0.16960415]
+ [0.89727193 0.9975898 ]]
+ ```
 
 ## [2019.02.27] CNN
 
