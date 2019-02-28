@@ -10,6 +10,12 @@
 가상환경 상의 파이썬에서 tensorflow를 구동시키기 위하여 Anaconda3을 설치한다.
 
 
+### Colab
+구글에서 제공하는 Jupyter notebook 기반의 온라인 딥러닝 구동 환경이다. 구글 드라이브, Github 등과 연동하여 사용할 수 있어 편리하다.
+교육, 학습용으로 제공되는 서비스이기 때문에 일정 시간이상 딥러닝을 구동시키면 실행이 초기화된다.
+하지만 이는 tensorflow의 기본적인 기능을 학습하는 데에 큰 지장은 없다.
+
+
 
 ## [2019.02.26] MLP
 
@@ -25,3 +31,7 @@ CNN : Convolutional Neural Network
 
 
 ![](images/MNIST_CNN.PNG)
+
+
+## [2019.02.28] Keras
+
