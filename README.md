@@ -217,5 +217,11 @@ with tf.Session() as sess:
 ![](images/MNIST_CNN.png)
 
 
-## [2019.02.28] Keras
+## [2019.02.28] U-Net Segmentation with Keras
+
+Skin lesion (피부 병변) 인식하여 분할하는 문제
+
+
+
+
 
