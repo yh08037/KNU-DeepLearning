@@ -17,6 +17,7 @@
 
 
 
+
 ## [2019.02.26] MLP
 
 MLP : Mulitlayered Perceptron
