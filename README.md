@@ -70,8 +70,6 @@ print(my_var)
 <tf.Variable 'Variable_2:0' shape=(2, 3) dtype=float32_ref>
 ```
 
-#### Variables form numpy arrays, or constant
-
 #### Variables initailization method
 * 가장 대표적인 방법은 global_variables_initialize() 메소드인데, 이는 그래프 안에서 우리가 만든 모든 변수를 초기화시키는 연산을 생성한다
 * 또는 한 변수를 다른 변수를 초기화한 결과를 기반으로 초기화려면 다음과 같이 할 수 있다
