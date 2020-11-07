@@ -113,6 +113,7 @@ print(temp)
 CNN : Convolutional Neural Network
 
 ### MNIST 
+#### Load and preprocess data
 
 ```python
 # Load the necessary package
@@ -138,7 +139,10 @@ print(x_train.shape)    # (60000, 28, 28, 1)
 print(x_train.max())
 x_train = x_train / 255
 x_test = x_test / 255
+```
+#### Network
 
+```python
 # Allocate placeholders for I/O
 x = tf.placeholder(tf.float32, shape=[None, 28, 28, 1])
 y = tf.placeholder(tf.int64, shape=[None])
@@ -149,9 +153,11 @@ print(y_onehot.shape)
 
 # Dropout probability
 keep_prob = tf.placeholder(tf.float32)
+```
 
+![](images/MNIST_CNN.png)
 
-
+```python
 # Network Setting
 
 # Convolution layer 1
@@ -195,9 +201,9 @@ train_step = tf.train.AdamOptimizer(1e-4).minimize(loss)
 correct_prediction = tf.equal(tf.argmax(y_pred, 1), y)
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
-
-
-
+```
+#### Training
+```python
 # LEARGNING STEPS
 
 with tf.Session() as sess:
@@ -214,13 +220,6 @@ with tf.Session() as sess:
     print("test acc:%f" %test_accuracy)
 ```
 
-
-![](images/MNIST_CNN.png)
-
-
-## [2019.02.28] U-Net Segmentation with Keras
-
-Skin lesion (피부 병변) 인식하여 분할하는 문제
 
 
 
